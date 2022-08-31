@@ -1,11 +1,13 @@
 import './App.css';
-import Hello from './components/Hello'
+import City from './components/City';
 
 function App() {
   return (
     <div className="App">
-      <Hello/>Bikrant
-      <Hello/>Rohit
+      <City city="London" adjective="beautiful"/>
+      <City city="Kathmandu" adjective="awesome"/>
+      <City city="Beijing" adjective="great"/>
+      <City city="Delhi" adjective="marvelous"/>      
     </div>
   );
 }
