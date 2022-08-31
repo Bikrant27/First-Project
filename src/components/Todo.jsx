@@ -3,7 +3,7 @@ import './Todo.css'
 
 const Todo = () => {
   return (
-        <div class="Container">
+        <div class="container">
             <h3 class="logo">Todo App</h3>
             <input type="text" class ="input" placeholder='Enter the Items'></input>
             <button class="button">Add Todo</button>
