@@ -40,7 +40,8 @@ const Todo = () => {
             </input>
             <button 
                 class="button"
-                onClick = {handleSubmit}>Add Todo</button>
+                onClick = {handleSubmit}
+                disabled = {!inputData}>Add Todo</button>
             <h3 class="todo-list">To Do Lists</h3>
             <ul class="list">
                 {todos.map((todo) => (
