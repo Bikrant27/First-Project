@@ -20,7 +20,10 @@ const Todo = () => {
     }
 
     function Edit(){
-
+        const newTodos = [...todos]
+        newTodos.splice(index, 1, inputData)
+        setTodos(newTodos)
+        setInputData('')
     }
 
     function Delete(index){
