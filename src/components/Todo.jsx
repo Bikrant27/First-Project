@@ -19,7 +19,7 @@ const Todo = () => {
         setTodos([])
     }
 
-    function Edit(){
+    function Edit(index){
         const newTodos = [...todos]
         newTodos.splice(index, 1, inputData)
         setTodos(newTodos)
