@@ -16,15 +16,17 @@ const Todo = () => {
     }
 
     function deleteAll(){
-        setTodos([''])
+        setTodos([])
     }
 
     function Edit(){
 
     }
 
-    function Delete(){
-    
+    function Delete(index){
+        const newTodos = [...todos];
+        newTodos.splice(index, 1);
+        setTodos(newTodos);
     }
 
   return (
@@ -47,7 +49,7 @@ const Todo = () => {
                 {todos.map((todo) => (
                 <li>{todo}
                 <button onClick={Edit}>Edit</button>
-                <button onClick={Delete}>Delete</button>
+                <button onClick={()=>Delete(todos.indexOf(todo))}>Delete</button>
                 </li> ))}
             </ul>
             <button
