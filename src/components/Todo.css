@@ -31,7 +31,8 @@
 
 .list{
     position: inherit;
-    left: 90px;
+    left: 50px;
+    list-style-type: none;
 }
 
 .remove{
