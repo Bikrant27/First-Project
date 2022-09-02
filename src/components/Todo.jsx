@@ -1,14 +1,20 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Todo.css'
 
 const Todo = () => {
     const [inputData, setInputData] = useState('');
-    const [todos, setTodos] = useState([
-        'Walk for fresh.',
-        'Rest a while.',
-        'Feed a dog.',
-        'Watch a movie.'
-    ]);
+    const [todos, setTodos] = useState(JSON.parse(localStorage.getItem('lists')) || [])
+
+    useEffect(()=> {
+        localStorage.setItem('lists', JSON.stringify(todos));
+    }, [todos]);
+
+    useEffect(()=> {
+        const data = JSON.parse(localStorage.getItem('lists'));
+        if(data){
+            setTodos(data);
+        }
+    }, []);
 
     function handleSubmit(){
         setTodos([...todos, inputData])
@@ -20,11 +26,11 @@ const Todo = () => {
     }
 
     function Edit(index){
-        const newTodos = [...todos]
-        newTodos.splice(index, 1, inputData)
-        setTodos(newTodos)
-        setInputData('')
-    }
+            const newTodos = [...todos]
+            newTodos.splice(index, 1, inputData)
+            setTodos(newTodos)
+            setInputData(todos[index])
+     }
 
     function Delete(index){
         const newTodos = [...todos];
@@ -51,7 +57,9 @@ const Todo = () => {
             <ul class="list">
                 {todos.map((todo) => (
                 <li>{todo}
-                <button onClick={Edit}>Edit</button>
+                <button
+                    onClick={()=>Edit(todos.indexOf(todo))}>
+                        Edit</button>
                 <button onClick={()=>Delete(todos.indexOf(todo))}>Delete</button>
                 </li> ))}
             </ul>
